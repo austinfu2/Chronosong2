@@ -1,0 +1,184 @@
+body {
+    background-color: #FAFAFA;
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-row-gap: 16px;
+}
+.modal-body h1,
+.modal-grid {
+  margin-bottom: 36px;
+}
+
+footer {
+  text-align: center;
+  font-family: "Oswald";
+  padding-top:100px;
+}
+
+.year-label {
+    position: relative;
+    top: 0px;
+    left: 450px;
+    text-align: center;
+    background-color: #092348;
+    color: #FAFAFA;
+    padding: 0.5rem;
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    width: 20%
+}
+
+.slider {
+    margin-top: 20px;
+}
+
+.noUi-pips {
+    margin-top: 10px;
+    padding-bottom: 40px;
+}
+
+.noUi-value-large {
+    background-color: #FAFAFA;
+    color: #092348;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.noUi-horizontal .noUi-connect {
+  background-color: #1DB954;
+  height: 8px;
+}
+
+#slider2 .noUi-connect {
+  background-color: #D30000;
+  height: 8px;
+}
+
+#slider-container {
+  margin-bottom: 100px;
+}
+
+.text-tangerine {
+    font-family: "Oswald", cursive;
+    font-size: 60px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+    text-align: center;
+    color: #092348;
+  }
+
+  #embed-uri {
+    margin-top: 10px;
+  }
+
+  .submit {
+  background-color: #092348;
+  color: #FAFAFA;
+  font-family: "Oswald";
+  }
+
+ .next-round {
+  display: block;
+  margin: 0 auto;
+  font-size: 24px;
+  width: 200px;
+  height: 80px;
+  font-family: "Oswald";
+  color: #092348;
+
+}
+
+#release-year {
+    font-family: "Oswald", cursive;
+    font-size: 60px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #092348;
+}
+
+#high-score-final {
+  font-size: 32px;
+  text-align: left;
+  font-family: "Oswald";
+  color: #092348;
+
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+#restart {
+  font-size: 62px;
+  text-align: center;
+  font-family: "Oswald";
+  color: #092348;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+.round-score-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Oswald";
+  color: #092348;
+}
+
+
+#songQuestion {
+    font-family: "Oswald";
+    text-align: center;
+    color: #092348;
+    padding-top:40px;
+  }
+
+
+.start {
+  font-family: "Oswald";
+  color: #092348;
+}
+
+.handle-label {
+  position: absolute;
+  top: -30px;
+  transform: translateX(-50%);
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+#spotify-web-player {
+height: 150px;
+}
+
+#total-score {
+  font-size: 32px;
+  text-align: right;
+  font-family: "Oswald";
+  color: #092348;
+}
+
+#round {
+  font-size: 32px;
+  text-align: center;
+  font-family: "Oswald";
+  color: #092348;
+}
+
+#points {
+  font-size: 32px;
+  text-align: right;
+  font-family: "Oswald";
+  color: #092348;
+}

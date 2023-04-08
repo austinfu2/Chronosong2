@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chronosong</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+    <link
+      href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="static/style.css" rel="stylesheet" />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://button.glitch.me/button.js"></script>
+
+    <!-- Include the Web Playback SDK -->
+<!--    <script src="https://sdk.scdn.co/spotify-player.js"></script>-->
+
+    <!-- Include our Javascript -->
+    <script src="static/script.js" defer></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
+    />
+  </head>
+
+  <body class="container">
+    <!-- Project Helper      <div class="glitchButton pull-right"></div>-->
+        <h1 class="text-tangerine">Chronosong</h1>
+    <div class="game-container">
+    <div class="game-left">
+      <div class="round-score-line">
+           <h3 id="high-score-final"></h3>
+            <h2 id="round">Round  / 5 </h2>
+                <h2 id="total-score">Total Score: 0</h2>
+      </div>
+             <h3 id="points"></h3>
+    <h2><button id="next-round big-button" class="next-round btn btn-sm" onclick="nextRound()">
+          Next Round
+        </button></h2>
+
+        <h3 id="restart"><button id="restart big-button" class="restart btn btn-sm" onclick="restart()">
+              Restart</button></h3>
+
+    <div class="row padding">
+      <center>
+        <button id="big-button" class="start btn btn-sm" onclick="getASong()">
+          Start
+        </button>
+          <button id="big-button" class="reload btn btn-sm" onclick="getASong()">
+          If a new song doesn't load, Reload here</button>
+      </center>
+    </div>
+    </div>
+
+
+    <div class="game-right">
+               <div id="spotify-web-player">
+      <center class="contender">
+<!--        <a href="#" onclick="saveTrack('current-track-name-save')">
+          <img style="display:none;" id="current-track-name-save" src="//:0" />
+        </a>-->
+        <br />
+        <iframe
+          id="embed-uri"
+          src="about:blank"
+          width="250"
+          height="150"
+          frameborder="0"
+          allowtransparency="true"
+          allow="encrypted-media"
+        ></iframe>
+      </center>
+    </div>
+
+    <div class="row">
+  <div class="col-md-12" id="songQuestion">
+    <h5>What year was this song released?</h5>
+  </div>
+        <div class="col-md-12" id="release-year">
+            <h5 style="display: none;"></h5>
+          </div>
+  <div class="col-md-12" id="slider-container">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.css" />
+    <div id="slider"></div>
+    <div id="year-label"></div>
+  </div>
+</div>
+<div class="row padding">
+  <center>
+    <button id="big-button" class="submit btn btn-sm" onclick="submitAnswer()">
+      Submit
+    </button>
+  </center>
+        <div id="slider2"></div>
+</div>
+    </div>
+    <footer>
+      <p>made with <3 by <a href="https://www.github.com/austinfu2">@austin_urraca</a>, using
+        <a href="https://developer.spotify.com/documentation/web-api/">Spotify API</a>,
+        inspired by <a href="https://www.chronophoto.app">Chronophoto.app</a>, and heavily borrowed from <a href="https://github.com/rob-med/spotify-random-song">@rob_medico</a>
+        <br />
+      </p>
+    </footer>
+  </body>
+</html>

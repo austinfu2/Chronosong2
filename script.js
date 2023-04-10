@@ -135,7 +135,7 @@ function getASong() {
       $(".start").hide();
     },
     error : function() {
-        console.log("THIS IS WHERE WE SHOULD TRY TO GET A SONG AGAIN");
+    getASong();
     }
     });
 }

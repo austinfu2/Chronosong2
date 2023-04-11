@@ -1,6 +1,6 @@
 # Chronosong
 
-Connect to Spotify and play a game where you are given a random song and jave to guess which year it was released! What's your best score over 5  rounds?
+Connect to Spotify and play a game where you are given a random song and guess which year it was released! What's your best score over 5 rounds?
 
 Disover the randomness of Spotify in this quick little fun game.
 

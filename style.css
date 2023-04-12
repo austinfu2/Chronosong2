@@ -209,3 +209,12 @@ body.fireworks #fireworks-container {
   padding-top: 50px;
   text-align: center;
 }
+
+/* Center year label on mobile screens */
+@media only screen and (max-width: 600px) {
+  .year-label {
+    left: 0;
+    margin: 0 auto;
+    width: 100%;
+  }
+}

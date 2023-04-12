@@ -99,7 +99,6 @@ footer {
     margin-bottom: 20px;
     text-align: center;
     color: #092348;
-    animation: fadeIn 5s;
 }
 
 #high-score-final {
@@ -115,13 +114,11 @@ h3 {
   padding: 0;
 }
 
-#restart {
-  font-size: 62px;
+.restart {
+  font-size: 56px;
   text-align: center;
   font-family: "Oswald";
   color: #092348;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 
@@ -182,10 +179,28 @@ height: 150px;
   text-align: right;
   font-family: "Oswald";
   color: #092348;
-  animation: fadeIn 5s;
 }
 
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+.fade-in {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.fade-in.show {
+  opacity: 1;
+}
+
+#fireworks-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+}
+
+body.fireworks #fireworks-container {
+  display: block;
+   pointer-events: none;
 }

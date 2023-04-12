@@ -16,10 +16,6 @@
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"
     ></script>
-    <script src="https://button.glitch.me/button.js"></script>
-
-    <!-- Include the Web Playback SDK -->
-<!--    <script src="https://sdk.scdn.co/spotify-player.js"></script>-->
 
     <!-- Include our Javascript -->
     <script src="script.js" defer></script>
@@ -32,13 +28,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
     />
       <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
   </head>
 
   <body class="container">
         <h1 class="text-tangerine">Chronosong</h1>
     <div class="game-container">
-    <div class="game-left">
+    <div class="game-top">
       <div class="round-score-line">
            <h3 id="high-score-final"></h3>
             <h2 id="round">Round  / 5 </h2>
@@ -52,8 +47,7 @@
         <div class="text-center">
         <button id="restart big-button" class="restart btn btn-sm" onclick="restart()">
             Restart</button></div>
-
-    <div class="row padding">
+        <div class="row padding">
       <center>
         <button id="big-button" class="start btn btn-sm" onclick="getASong()">
           Start
@@ -68,12 +62,9 @@
           <!-- add a container for the fireworks -->
 <div id="fireworks-container"></div>
 
-    <div class="game-right">
+    <div class="game-bottom">
                <div id="spotify-web-player">
       <center class="contender">
-<!--        <a href="#" onclick="saveTrack('current-track-name-save')">
-          <img style="display:none;" id="current-track-name-save" src="//:0" />
-        </a>-->
         <br />
         <iframe
           id="embed-uri"

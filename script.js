@@ -90,6 +90,7 @@ function makeid(length) {
   return result;
 }
 
+// Create the Release Year Variable
 let release_year;
 
 function restart() {
@@ -97,6 +98,7 @@ function restart() {
     location.reload();
 }
 
+// Create the roundResults to save the information each round to display at Results
 let roundResults = [];
 
 function getASong() {
@@ -128,7 +130,7 @@ function getASong() {
       );
       $("#current-track-name-save").css("display", "block");
 
-            // save the release date in a variable
+      // save the release date in a variable
       let release_date = new Date(releaseDate).toLocaleDateString();
       const releaseYearString = release_date.slice(-4);
       release_year = parseInt(releaseYearString);
@@ -157,7 +159,6 @@ let currentRound = 1;
 const totalRounds = 5;
 let totalScore = 0;
 let score = 0;
-
 
 //CREATE BOTH SLIDERS
 const slider = document.getElementById('slider');
@@ -194,7 +195,6 @@ slider.noUiSlider.on('update', function (values, handle) {
     yearLabel.innerHTML = Math.round(values[handle]);
 });
 
-
 // SECOND SLIDER TO SHOW DIFFERENCE
 const tooltipSlider = document.getElementById('slider2');
 
@@ -219,13 +219,13 @@ $("#points").html("");
 $(".next-round").hide();
 $(".reload").hide();
 $(".restart").hide();
- $("#slider2").hide();
+$("#slider2").hide();
 
 let highScore = localStorage.getItem("highScore");
 $("#high-score-final").html(`High Score: ${highScore}`);
 
+// LOAD THE FIRST SONG
 getASong();
-
 
 function submitAnswer() {
   const selectedYear = Math.round(slider.noUiSlider.get());
@@ -264,16 +264,15 @@ function submitAnswer() {
   totalScore += score;
   const result = `You scored ${score} points in Round ${currentRound} `;
   const total = `Total Score: ${totalScore}`;
-    // Add top the roundResults to give a summary at the end
-  roundResults[currentRound - 1].score = score;
 
+  // Add top the roundResults to give a summary at the end
+  roundResults[currentRound - 1].score = score;
 
   // update the HTML elements
     $("#points").html(result);
     $("#total-score").html(total);
     $(".submit").hide();
     $(".next-round").show();
-
 
     // Display the release year above the Spotify web player
     const releaseYearDiv = document.getElementById("release-year");
@@ -292,8 +291,9 @@ function submitAnswer() {
         document.getElementById("next-round big-button").textContent = "Results";
 }
 
+ // ADD FIREWORKS ON PERFECT SCORE
   if (score >= 1000) {
-    $("body").addClass("fireworks"); // add the "fireworks" class to the body element
+    $("body").addClass("fireworks");
     setTimeout(function() {
       particlesJS('fireworks-container', {
   "particles": {
@@ -400,8 +400,7 @@ function submitAnswer() {
   },
   "retina_detect": true
     });
-        // your particleJS configuration goes here
-    }, 500); // delay the particleJS script by 500 milliseconds
+    }, 500); // delay the particleJS script by 500 milliseconds (does not work otherwise)
   }
 }
 
@@ -429,28 +428,6 @@ function nextRound() {
   $("#slider2").hide();
   $(".reload").show();
   getASong();
-}
-
-function saveTrack(tid) {
-  var track = $("#" + tid)
-    .attr("data-song")
-    .split(":")
-    .pop();
-
-  $.ajax({
-    url: "https://api.spotify.com/v1/me/tracks?ids=" + track,
-    type: "PUT",
-    beforeSend: function(xhr) {
-      xhr.setRequestHeader("Authorization", "Bearer " + _token);
-    },
-    success: function(data) {
-    //  console.log(data);
-      $("#" + tid).attr(
-        "src",
-        "https://cdn.glitch.com/eed3cfeb-d097-4769-9d03-2d3a6cc7c004%2Ficons8-heart-24(1).png?v=1597232463038"
-      );
-    }
-  });
 }
 
 function showFinalScore() {

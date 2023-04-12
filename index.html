@@ -10,7 +10,7 @@
       href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.min.css"
       rel="stylesheet"
     />
-    <link href="style.css" rel="stylesheet" />
+    <link href="static/style.css" rel="stylesheet" />
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -22,7 +22,7 @@
 <!--    <script src="https://sdk.scdn.co/spotify-player.js"></script>-->
 
     <!-- Include our Javascript -->
-    <script src="script.js" defer></script>
+    <script src="static/script.js" defer></script>
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -31,10 +31,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
     />
+      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
   </head>
 
   <body class="container">
-    <!-- Project Helper      <div class="glitchButton pull-right"></div>-->
         <h1 class="text-tangerine">Chronosong</h1>
     <div class="game-container">
     <div class="game-left">
@@ -43,13 +44,14 @@
             <h2 id="round">Round  / 5 </h2>
                 <h2 id="total-score">Total Score: 0</h2>
       </div>
-             <h3 id="points"></h3>
+             <h3 id="points" class="fade-in"></h3>
     <h2><button id="next-round big-button" class="next-round btn btn-sm" onclick="nextRound()">
           Next Round
         </button></h2>
 
-        <h3 id="restart"><button id="restart big-button" class="restart btn btn-sm" onclick="restart()">
-              Restart</button></h3>
+        <div class="text-center">
+        <button id="restart big-button" class="restart btn btn-sm" onclick="restart()">
+            Restart</button></div>
 
     <div class="row padding">
       <center>
@@ -61,7 +63,116 @@
       </center>
     </div>
     </div>
-
+          <!-- add a container for the fireworks -->
+<div id="fireworks-container"></div>
+          <!-- add the script for the fireworks animation -->
+  <script>
+particlesJS('fireworks-container', {
+  "particles": {
+    "number": {
+      "value": 100,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#ff5349"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      },
+      "polygon": {
+        "nb_sides": 5
+      }
+    },
+    "opacity": {
+      "value": 0.5,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 5,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": false,
+      "distance": 500,
+      "color": "#ffffff",
+      "opacity": 0.4,
+      "width": 2
+    },
+    "move": {
+      "enable": true,
+      "speed": 6,
+      "direction": "bottom",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": false,
+        "mode": "repulse"
+      },
+      "onclick": {
+        "enable": false,
+        "mode": "push"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "bubble": {
+        "distance": 400,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 200,
+        "duration": 0.4
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true
+    });
+  </script>
 
     <div class="game-right">
                <div id="spotify-web-player">
@@ -86,7 +197,7 @@
   <div class="col-md-12" id="songQuestion">
     <h5>What year was this song released?</h5>
   </div>
-        <div class="col-md-12" id="release-year">
+        <div class="col-md-12 fade-in" id="release-year">
             <h5 style="display: none;"></h5>
           </div>
   <div class="col-md-12" id="slider-container">

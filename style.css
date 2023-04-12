@@ -99,6 +99,7 @@ footer {
     margin-bottom: 20px;
     text-align: center;
     color: #092348;
+    animation: fadeIn 5s;
 }
 
 #high-score-final {
@@ -181,4 +182,10 @@ height: 150px;
   text-align: right;
   font-family: "Oswald";
   color: #092348;
+  animation: fadeIn 5s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }

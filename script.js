@@ -18,7 +18,7 @@ const authEndpoint = "https://accounts.spotify.com/authorize";
 
 // Replace with your app's client ID, redirect URI and desired scopes
 const clientId = "dbaf8fe7fce641d98710a68e488edf81";
-const redirectUri = "http://127.0.0.1:5000";
+const redirectUri = "https://chronosong2.pages.dev";
 const scopes = [
   "streaming",
   "user-modify-playback-state",

@@ -18,7 +18,7 @@ const authEndpoint = "https://accounts.spotify.com/authorize";
 
 // Replace with your app's client ID, redirect URI and desired scopes
 const clientId = "dbaf8fe7fce641d98710a68e488edf81";
-const redirectUri = "https://chronosong2.pages.dev";
+const redirectUri = "http://127.0.0.1:5000";
 const scopes = [
   "streaming",
   "user-modify-playback-state",
@@ -259,20 +259,35 @@ function submitAnswer() {
     $(".next-round").show();
 
     // Display the release year above the Spotify web player
-    $("#release-year").show();
     const releaseYearDiv = document.getElementById("release-year");
     releaseYearDiv.innerHTML = release_year;
     releaseYearDiv.style.display = "inline-block";
+
+    // Display the release year and points scored with a fade-in animation
+    const revealRelease = document.getElementById("release-year");
+    revealRelease.classList.add("show");
+    const revealPoints = document.getElementById("points");
+    revealPoints.classList.add("show");
+
 
     if (currentRound < 5) {
         document.getElementById("next-round big-button").textContent = "Next Round";
     } else {
         document.getElementById("next-round big-button").textContent = "Results";
 }
+    if (score >= 1000) {
+    $("body").addClass("fireworks"); // add the "fireworks" class to the body element
+  }
 }
 
 // function to go to the next round
 function nextRound() {
+
+ // Remove the fireworks animation from the container
+  $('body').removeClass('fireworks');
+  $("#release-year").removeClass("show");
+  $("#points").removeClass("show");
+
    currentRound++; // increment the round variable
    if (currentRound > totalRounds) {
     showFinalScore();
@@ -315,9 +330,10 @@ function saveTrack(tid) {
 function showFinalScore() {
  $("#spotify-web-player").hide();
  $(".next-round").hide();
- $("#points").hide();
+ $("#points").css('display', 'none');
+ $("#release-year").css('display', 'none');
  $(".reload").hide();
- $(".final-score").show();
+ $("#high-score-final").show();
  $(".restart").show();
 
 // retrieve and display high score if possible

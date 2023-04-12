@@ -18,7 +18,7 @@ const authEndpoint = "https://accounts.spotify.com/authorize";
 
 // Replace with your app's client ID, redirect URI and desired scopes
 const clientId = "dbaf8fe7fce641d98710a68e488edf81";
-const redirectUri = "https://chronosong2.pages.dev";
+const redirectUri = "http://127.0.0.1:5000";
 const scopes = [
   "streaming",
   "user-modify-playback-state",
@@ -269,14 +269,121 @@ function submitAnswer() {
     const revealPoints = document.getElementById("points");
     revealPoints.classList.add("show");
 
-
     if (currentRound < 5) {
         document.getElementById("next-round big-button").textContent = "Next Round";
     } else {
         document.getElementById("next-round big-button").textContent = "Results";
 }
-    if (score >= 1000) {
+  if (score >= 1000) {
     $("body").addClass("fireworks"); // add the "fireworks" class to the body element
+    setTimeout(function() {
+      particlesJS('fireworks-container', {
+  "particles": {
+    "number": {
+      "value": 100,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#ff5349"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#ff5349"
+      },
+      "polygon": {
+        "nb_sides": 5
+      }
+    },
+    "opacity": {
+      "value": 0.5,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 5,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": false,
+      "distance": 500,
+      "color": "#ff5349",
+      "opacity": 0.4,
+      "width": 2
+    },
+    "move": {
+      "enable": true,
+      "speed": 6,
+      "direction": "bottom",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": false,
+        "mode": "repulse"
+      },
+      "onclick": {
+        "enable": false,
+        "mode": "push"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "bubble": {
+        "distance": 400,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 200,
+        "duration": 0.4
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true
+    });
+        // your particleJS configuration goes here
+    }, 500); // delay the particleJS script by 500 milliseconds
   }
 }
 

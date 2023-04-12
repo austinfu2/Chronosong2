@@ -18,7 +18,7 @@ const authEndpoint = "https://accounts.spotify.com/authorize";
 
 // Replace with your app's client ID, redirect URI and desired scopes
 const clientId = "dbaf8fe7fce641d98710a68e488edf81";
-const redirectUri = "http://127.0.0.1:5000";
+const redirectUri = "http://chronosong2.pages.dev";
 const scopes = [
   "streaming",
   "user-modify-playback-state",
@@ -97,6 +97,8 @@ function restart() {
     location.reload();
 }
 
+let roundResults = [];
+
 function getASong() {
   let random_seed = makeid(2);
   let random_offset = Math.floor(Math.random() * 2000); // returns a random integer from 0 to 9
@@ -133,9 +135,19 @@ function getASong() {
       totalYears = 2023 - release_year;
 
       $(".start").hide();
+      let roundResult = {
+      song: data.tracks.items[0].name,
+      artist: data.tracks.items[0].artists[0].name,
+      year: release_year,
+      spotifyLink: "https://open.spotify.com/track/" + data.tracks.items[0].id,
+      score: 0
+    };
+
+    roundResults.push(roundResult);
+
     },
     error : function() {
-    getASong();
+      setTimeout(getASong, 1000); // add a delay of 1 second before making another API request
     }
     });
 }
@@ -214,6 +226,7 @@ $("#high-score-final").html(`High Score: ${highScore}`);
 
 getASong();
 
+
 function submitAnswer() {
   const selectedYear = Math.round(slider.noUiSlider.get());
 
@@ -251,12 +264,16 @@ function submitAnswer() {
   totalScore += score;
   const result = `You scored ${score} points in Round ${currentRound} `;
   const total = `Total Score: ${totalScore}`;
+    // Add top the roundResults to give a summary at the end
+  roundResults[currentRound - 1].score = score;
+
 
   // update the HTML elements
     $("#points").html(result);
     $("#total-score").html(total);
     $(".submit").hide();
     $(".next-round").show();
+
 
     // Display the release year above the Spotify web player
     const releaseYearDiv = document.getElementById("release-year");
@@ -274,6 +291,7 @@ function submitAnswer() {
     } else {
         document.getElementById("next-round big-button").textContent = "Results";
 }
+
   if (score >= 1000) {
     $("body").addClass("fireworks"); // add the "fireworks" class to the body element
     setTimeout(function() {
@@ -398,6 +416,7 @@ function nextRound() {
    currentRound++; // increment the round variable
    if (currentRound > totalRounds) {
     showFinalScore();
+    showResults();
      $(".next-round").hide();
      $("#release-year").hide();
     return;
@@ -450,4 +469,36 @@ if (!highScore || totalScore > highScore) {
     localStorage.setItem("highScore", highScore);
 }
     $("#high-score-final").html(`High Score: ${highScore}`);
+}
+
+function showResults() {
+  const resultsContainer = document.getElementById("results-container");
+  resultsContainer.innerHTML = "";
+
+  for (let i = 0; i < roundResults.length; i++) {
+    const roundResult = roundResults[i];
+
+    const roundElement = document.createElement("div");
+    roundElement.classList.add("round");
+
+    const roundNumberElement = document.createElement("h3");
+    roundNumberElement.textContent = `Round ${i + 1}`;
+
+    const songElement = document.createElement("p");
+    songElement.textContent = `${roundResult.song} by ${roundResult.artist}`;
+
+    const spotifyLinkElement = document.createElement("a");
+    spotifyLinkElement.href = roundResult.spotifyLink;
+    spotifyLinkElement.textContent = "Listen on Spotify";
+
+    const scoreElement = document.createElement("p");
+    scoreElement.textContent = `Score: ${roundResult.score}`;
+
+    roundElement.appendChild(roundNumberElement);
+    roundElement.appendChild(songElement);
+    roundElement.appendChild(spotifyLinkElement);
+    roundElement.appendChild(scoreElement);
+
+    resultsContainer.appendChild(roundElement);
+  }
 }

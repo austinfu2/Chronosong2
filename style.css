@@ -204,3 +204,8 @@ body.fireworks #fireworks-container {
   display: block;
    pointer-events: none;
 }
+
+#results-container {
+  padding-top: 50px;
+  text-align: center;
+}

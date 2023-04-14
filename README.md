@@ -5,13 +5,18 @@ Discover the randomness of Spotify in this quick little game.
 Connect to Spotify and play a game where you get 5 rounds with random songs and get to guess which year it was released! What's your best score?
 
 
-***Unfortunately, Spotify does not allow public access for games or quizzes, so feel free to REQUEST ACCESS by sending me your Spotify email and I can add you to the app privately.***
+***Unfortunately, Spotify does not allow public access for games or quizzes, so feel free to REQUEST ACCESS by sending me your Spotify email and I can add you to the app privately.*** (but here is a free spotify account that has access email: pw: )
 
 
+You can also recreate the app by downloading the files, creating a developer account with Spotify, adding the app and changing the client ID, website and redirect URIs in the dashboard, as well as in the files here:
 
-To make it work locally, download the files and change script.js line 21 'const redirectUri = "https://chronosong2.pages.dev";'
+const clientId = "dbaf8fe7fce641d98710a68e488edf81";
+const redirectUri = "https://chronosong2.pages.dev";
+
+Change script.js lines 20 and 21
 to
-'const redirectUri = "http://127.0.0.1:5000";'
+const clientId = YOUR_CLIENT_ID
+const redirectUri = "http://127.0.0.1:5000";
 
 Then create a folder called 'templates' and add index.html in it.
 Then create a folder called 'static' and add style.css and script.js in it.
@@ -29,7 +34,7 @@ def index():
 if __name__ == "__main__":
     app.run()"
 
-And run the main.py file to open http://127.0.0.1:5000 locally.
+Hope you enjoy!
 
 
 Credits to the Spotify API, Chronophoto.app and @rob_medico for inspiration.

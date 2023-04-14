@@ -1,10 +1,13 @@
 # Chronosong
 
-Connect to Spotify and play a game where you get a random song and guess which year it was released! What's your best score over 5 rounds?
-
 Discover the randomness of Spotify in this quick little game.
 
+Connect to Spotify and play a game where you get 5 rounds with random songs and get to guess which year it was released! What's your best score?
+
+
 ***Unfortunately, Spotify does not allow public access for games or quizzes, so feel free to REQUEST ACCESS by sending me your Spotify email and I can add you to the app privately.***
+
+
 
 To make it work locally, download the files and change script.js line 21 'const redirectUri = "https://chronosong2.pages.dev";'
 to

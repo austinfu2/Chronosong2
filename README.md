@@ -1,9 +1,6 @@
 # Chronosong
 
-Discover the randomness of Spotify in this quick little game.
-
-Connect to Spotify and play a game where you get 5 rounds with random songs and get to guess which year it was released! What's your best score?
-
+Discover the randomness of Spotify in this game over 5 rounds where you have to guess which year each random song was released! What's your best score?
 
 ***Unfortunately, Spotify does not allow public access for games or quizzes, so feel free to REQUEST ACCESS by sending me your Spotify email and I can add you to the app privately.*** (but here is a free spotify account that has access email: pw: )
 
@@ -40,6 +37,7 @@ if __name__ == "__main__":
     app.run()
 ```
 
+And run the main.py to open http://127.0.0.1:5000 locally.
 
 Hope you enjoy!
 

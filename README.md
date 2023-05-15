@@ -2,7 +2,7 @@
 
 Discover the randomness of Spotify in this game over 5 rounds where you have to guess which year each random song was released! What's your best score?
 
-***Unfortunately, Spotify does not allow public access for games or quizzes, so feel free to REQUEST ACCESS by sending me your Spotify email and I can add you to the app privately.*** (but here is a free spotify account that has access email: pw: )
+***Unfortunately, Spotify does not allow public access for games or quizzes, so feel free to REQUEST ACCESS by sending me your Spotify email and I can add you to the app privately.*** (or here is a free spotify account that works email: pw: )
 
 
 You can also recreate the app by downloading the files, creating a developer account with Spotify, adding the app and changing the client ID, website and redirect URIs in the dashboard, as well as in the files here:
